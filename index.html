@@ -17,45 +17,12 @@
     <span><a href="한국.html">PORTFOLIO</a> </a></span>
 </div>
     
-    <li><a href="한국.html">한국</a> <br></li>
-    <li><a href="미국.html">미국</a> <br></li>
-    <li><a href="프랑스.html">프랑스</a> <br></li>
+
 </ol>
 
 <p = style = "margin: 20px;"><h2>설명1 </h2>
 <h3>설명2 <br>
 설명3 <br>
-
-<table>
-  <thead>
-    <tr>
-      <th>배당일</th>
-      <th>배당금</th>
-    </tr>
-  </thead>
-  <tbody id="dividend-history"></tbody>
-</table>
-
-<script>
-  fetch('https://cors-anywhere.herokuapp.com/https://www.nasdaq.com/market-activity/funds-and-etfs/qyld/dividend-history')
-    .then(response => response.text())
-    .then(data => {
-      const parser = new DOMParser();
-      const html = parser.parseFromString(data, 'text/html');
-      const rows = html.querySelectorAll('.historical-data__table tbody tr');
-      let htmlString = '';
-      rows.forEach(row => {
-        const cells = row.querySelectorAll('td');
-        const date = cells[0].textContent.trim();
-        const amount = cells[1].textContent.trim();
-        htmlString += `<tr><td>${date}</td><td>${amount}</td></tr>`;
-      });
-      document.getElementById('dividend-history').innerHTML = htmlString;
-    })
-    .catch(error => {
-      console.error(error);
-    });
-</script>
 
 
 
