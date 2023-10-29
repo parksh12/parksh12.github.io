@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>방명록</title>
+    <title>이리의 맥 이야기</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -21,11 +21,16 @@
   </head>
   <body style="background-color: black">
     <div class="hero text-center text-white py-5">
-      <h1 class="display-4">방명록</h1>
+      <h1 class="display-4">이리의 맥 이야기</h1>
       <h2>컴온!!!!</h2>
       <div class="btn-group my-3" role="group" aria-label="게시판">
-       
-          방명록 작성
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="showBoard('notice')"
+        >
+         
+          게시글 작성
         </button>
       </div>
       <div id="board1">
@@ -34,8 +39,19 @@
           class="btn btn-primary my-3"
           onclick="addPostPage('board1')"
         >
-          방명록 작성
+          게시글 작성
         </button>
+      </div>
+      <div id="board2">
+        <button
+          type="button"
+          class="btn btn-primary my-3"
+          onclick="addPostPage('board2')"
+        >
+          게시글 작성
+        </button>
+      </div>
+    </div>
     <div
       class="modal fade"
       id="addPostModal"
@@ -47,7 +63,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addPostModalLabel">방명록 작성</h5>
+            <h5 class="modal-title" id="addPostModalLabel">게시글 작성</h5>
             <button
               type="button"
               class="close"
@@ -195,7 +211,7 @@
       function addPostPage(boardId) {
         $("#addPostModal").modal("show");
         document.getElementById("addPostModalLabel").innerHTML =
-          "방명록 작성 - " + boardId;
+          "게시글 작성 - " + boardId;
         document.getElementById("addPostModal").dataset.boardId = boardId;
       }
 
